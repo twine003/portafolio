@@ -1,5 +1,4 @@
-/* styles.css */
-
+/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -42,16 +41,6 @@ header p {
 nav.menu {
     background-color: #333;
     text-align: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: -100%; /* Ocultar el menú inicialmente */
-    transition: left 0.3s ease;
-    z-index: 1000;
-}
-
-nav.menu.active {
-    left: 0; /* Mostrar el menú cuando está activo */
 }
 
 nav.menu ul {
@@ -107,13 +96,61 @@ nav.menu ul li a:hover {
     display: block;
 }
 
+.dropdown:hover .dropbtn {
+    background-color: #555;
+}
+
+section {
+    padding: 40px 0;
+}
+
+h2 {
+    color: #333;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.job {
+    margin-bottom: 30px;
+}
+
 footer {
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
 }
 
+footer a {
+    color:white
+}
+
+section h2 i {
+    margin-right: 10px;
+}
+
+section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+section ul li {
+    margin-bottom: 8px;
+}
+
+section ul li::before {
+    content: "\2022"; /* Bullet point */
+    color: #333;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
     header {
         padding: 20px 0;
@@ -124,24 +161,21 @@ footer {
         height: 120px;
     }
 
-    nav.menu {
+    nav.menu ul {
+        flex-direction: column;
         position: fixed;
         width: 100%;
         top: 0;
-        left: -100%; /* Ocultar el menú inicialmente */
+        left: -100%;
         transition: left 0.3s ease;
         background-color: #333;
         text-align: center;
-        padding-top: 80px; /* Ajuste para no superponerse al header */
+        padding-top: 80px; /* Ajuste para que no se superponga al header */
         z-index: 1000;
     }
 
-    nav.menu.active {
-        left: 0; /* Mostrar el menú cuando está activo */
-    }
-
-    nav.menu ul {
-        flex-direction: column;
+    nav.menu ul.active {
+        left: 0;
     }
 
     nav.menu ul li {
@@ -164,10 +198,10 @@ footer {
     }
 
     .menu-toggle {
-        display: none; /* Ocultar el checkbox de manera predeterminada */
+        display: none;
     }
 
-    .menu-toggle:checked + .menu {
-        left: 0; /* Mostrar el menú cuando el checkbox está marcado */
+    .menu-toggle:checked + .menu ul {
+        left: 0;
     }
 }
