@@ -134,6 +134,7 @@
     <script>
         document.querySelectorAll('.menu ul li a').forEach(item => {
             item.addEventListener('click', () => {
+                console.log('item clicked');
                 document.getElementById('menu-toggle').checked = false;
             });
         });
