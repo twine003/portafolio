@@ -89,7 +89,7 @@ nav.menu ul li a:hover {
 }
 
 .dropdown-content a:hover {
-    background-color: #f1f1f1;
+    background-color: #f6e7d2;
 }
 
 .dropdown:hover .dropdown-content {
@@ -119,10 +119,6 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    z-index: 1;
 }
 
 section h2 i {
@@ -139,14 +135,14 @@ section ul li {
 }
 
 section ul li::before {
-    content: "\2022"; /* Bullet point */
+    content: "\2022"; /* Punto de lista */
     color: #333;
     display: inline-block;
     width: 1em;
     margin-left: -1em;
 }
 
-/* Responsive Design */
+/* Diseño Responsivo */
 @media (max-width: 768px) {
     header {
         padding: 20px 0;
@@ -166,7 +162,7 @@ section ul li::before {
         transition: left 0.3s ease;
         background-color: #333;
         text-align: center;
-        padding-top: 80px; /* Ajuste para que no se superponga al header */
+        padding-top: 80px; /* Ajuste para no superponerse al header */
         z-index: 1000;
     }
 
