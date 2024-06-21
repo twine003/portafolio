@@ -18,16 +18,25 @@ header {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 80px 0;
+    padding: 40px 0;
+    position: relative;
+    z-index: 1; /* Para que esté por encima del contenido al hacer scroll */
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
 }
 
 header h1 {
-    font-size: 3em;
+    font-size: 2.5em;
     margin: 0;
 }
 
 header p {
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 
 section {
@@ -49,7 +58,15 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px 0;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
+    z-index: 1; /* Para que esté por encima del contenido al hacer scroll */
+}
+
+#about h2 i,
+#experience h2 i,
+#education h2 i,
+#skills h2 i {
+    margin-right: 10px;
 }
