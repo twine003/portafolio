@@ -117,16 +117,6 @@
 
         </div>
     </section>
-<!-- 
-    <section id="contact">
-        <div class="container">
-            <h2><i class="fas fa-address-book"></i> Contact</h2>
-            <p><i class="fas fa-map-marker-alt"></i> 5590 Bd Couture, St-Leonard, Montreal, Quebec, H1R1E3</p>
-            <p><i class="fas fa-envelope"></i> <a href="mailto:jwgarcia003@gmail.com">jwgarcia003@gmail.com</a></p>
-            <p><i class="fas fa-phone"></i> <a href="tel:+14387799003">+1 438 779 9003</a></p>
-            <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/jwgarciaz" target="_blank">LinkedIn Profile</a></p>
-        </div>
-    </section> -->
 
     <footer>
         <div class="container">
@@ -141,13 +131,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script> <!-- Font Awesome script -->
 
     <script>
-        function changeLanguage(lang) {
-            // Change the 'lang' attribute of the html tag
-            document.documentElement.lang = lang;
-
-            // Reload the page to apply language changes
-            location.reload();
-        }
+        document.querySelectorAll('.menu ul li a').forEach(item => {
+            item.addEventListener('click', () => {
+                document.getElementById('menu-toggle').checked = false;
+            });
+        });
     </script>
 </body>
 </html>

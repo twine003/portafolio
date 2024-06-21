@@ -1,4 +1,5 @@
-/* Estilos generales */
+/* styles.css */
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -41,6 +42,16 @@ header p {
 nav.menu {
     background-color: #333;
     text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: -100%; /* Ocultar el menú inicialmente */
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+
+nav.menu.active {
+    left: 0; /* Mostrar el menú cuando está activo */
 }
 
 nav.menu ul {
@@ -89,29 +100,11 @@ nav.menu ul li a:hover {
 }
 
 .dropdown-content a:hover {
-    background-color: #f6e7d2;
+    background-color: #f1f1f1;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #555;
-}
-
-section {
-    padding: 40px 0;
-}
-
-h2 {
-    color: #333;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-}
-
-.job {
-    margin-bottom: 30px;
 }
 
 footer {
@@ -119,38 +112,8 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    z-index: 1;
 }
 
-footer a {
-    color:white;
-}
-
-section h2 i {
-    margin-right: 10px;
-}
-
-section ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-section ul li {
-    margin-bottom: 8px;
-}
-
-section ul li::before {
-    content: "\2022"; /* Bullet point */
-    color: #333;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
-}
-
-/* Responsive Design */
 @media (max-width: 768px) {
     header {
         padding: 20px 0;
@@ -161,21 +124,24 @@ section ul li::before {
         height: 120px;
     }
 
-    nav.menu ul {
-        flex-direction: column;
+    nav.menu {
         position: fixed;
         width: 100%;
         top: 0;
-        left: -100%;
+        left: -100%; /* Ocultar el menú inicialmente */
         transition: left 0.3s ease;
         background-color: #333;
         text-align: center;
-        padding-top: 80px; /* Ajuste para que no se superponga al header */
+        padding-top: 80px; /* Ajuste para no superponerse al header */
         z-index: 1000;
     }
 
-    nav.menu ul.active {
-        left: 0;
+    nav.menu.active {
+        left: 0; /* Mostrar el menú cuando está activo */
+    }
+
+    nav.menu ul {
+        flex-direction: column;
     }
 
     nav.menu ul li {
@@ -198,10 +164,10 @@ section ul li::before {
     }
 
     .menu-toggle {
-        display: none;
+        display: none; /* Ocultar el checkbox de manera predeterminada */
     }
 
-    .menu-toggle:checked + .menu ul {
-        left: 0;
+    .menu-toggle:checked + .menu {
+        left: 0; /* Mostrar el menú cuando el checkbox está marcado */
     }
 }
