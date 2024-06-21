@@ -16,6 +16,25 @@
         </div>
     </header>
 
+    <!-- Navigation Menu -->
+    <nav class="menu">
+        <ul>
+            <li><a href="#summary">Summary</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#technical-skills">Technical Skills</a></li>
+            <li><a href="#work-experience">Work Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Language <i class="fas fa-angle-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#" onclick="changeLanguage('en')">English</a>
+                    <a href="#" onclick="changeLanguage('fr')">French</a>
+                    <a href="#" onclick="changeLanguage('es')">Spanish</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
     <section id="summary">
         <div class="container">
             <h2><i class="fas fa-user"></i> Summary</h2>
@@ -114,5 +133,15 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script> <!-- Font Awesome script -->
+
+    <script>
+        function changeLanguage(lang) {
+            // Change the 'lang' attribute of the html tag
+            document.documentElement.lang = lang;
+
+            // Reload the page to apply language changes
+            location.reload();
+        }
+    </script>
 </body>
 </html>

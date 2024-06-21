@@ -20,7 +20,7 @@ header {
     text-align: center;
     padding: 40px 0;
     position: relative;
-    z-index: 1; /* Para que esté por encima del contenido al hacer scroll */
+    z-index: 1;
 }
 
 .profile-img {
@@ -37,6 +37,68 @@ header h1 {
 
 header p {
     font-size: 1.2em;
+}
+
+nav.menu {
+    background-color: #333;
+    text-align: center;
+}
+
+nav.menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav.menu ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav.menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+nav.menu ul li a:hover {
+    background-color: #555;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #555;
 }
 
 section {
@@ -58,14 +120,53 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px 0;
+    position: fixed;
     bottom: 0;
     width: 100%;
-    z-index: 1; /* Para que esté por encima del contenido al hacer scroll */
+    z-index: 1;
 }
 
-#about h2 i,
-#experience h2 i,
-#education h2 i,
-#skills h2 i {
+section h2 i {
     margin-right: 10px;
+}
+
+section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+section ul li {
+    margin-bottom: 8px;
+}
+
+section ul li::before {
+    content: "\2022"; /* Bullet point */
+    color: #333;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        padding: 20px 0;
+    }
+
+    .profile-img {
+        width: 120px;
+        height: 120px;
+    }
+
+    nav.menu ul {
+        flex-direction: column;
+    }
+
+    nav.menu ul li {
+        margin: 10px 0;
+    }
+
+    .dropdown-content {
+        min-width: 100px;
+    }
 }
