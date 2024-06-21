@@ -1,172 +1,107 @@
-/* styles.css */
+/* Estilos para menú de navegación */
 
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #f2f2f2;
-}
-
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-header {
+.menu {
     background-color: #333;
+    overflow: hidden;
     color: #fff;
     text-align: center;
-    padding: 40px 0;
     position: relative;
-    z-index: 1;
 }
 
-.profile-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-}
-
-header h1 {
-    font-size: 2.5em;
-    margin: 0;
-}
-
-header p {
-    font-size: 1.2em;
-}
-
-nav.menu {
-    background-color: #333;
-    text-align: center;
-}
-
-nav.menu ul {
-    list-style-type: none;
+.menu ul {
     padding: 0;
     margin: 0;
-    display: flex;
-    justify-content: center;
+    list-style-type: none;
 }
 
-nav.menu ul li {
-    display: inline;
-    margin: 0 10px;
+.menu ul li {
+    display: inline-block;
 }
 
-nav.menu ul li a {
+.menu ul li a {
+    display: block;
+    padding: 20px;
     color: #fff;
     text-decoration: none;
-    padding: 10px 15px;
-    display: block;
 }
 
-nav.menu ul li a:hover {
+.menu ul li a:hover {
     background-color: #555;
 }
 
-.dropdown {
+.menu .dropdown {
     position: relative;
     display: inline-block;
 }
 
-.dropdown-content {
+.menu .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #555;
+    background-color: #333;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
 
-.dropdown-content a {
-    color: black;
+.menu .dropdown-content a {
+    color: #fff;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    text-align: left;
 }
 
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
+.menu .dropdown-content a:hover {
     background-color: #555;
 }
 
-section {
-    padding: 40px 0;
+.menu .dropdown:hover .dropdown-content {
+    display: block;
 }
 
-h2 {
-    color: #333;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-}
-
-.job {
-    margin-bottom: 30px;
-}
-
-footer {
-    background-color: #333;
+/* Estilos para el menú de hamburguesa */
+.menu-icon {
+    display: none;
+    cursor: pointer;
     color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    z-index: 1;
+    font-size: 20px;
+    padding: 20px;
 }
 
-section h2 i {
-    margin-right: 10px;
+.menu ul.active {
+    display: block;
 }
 
-section ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-section ul li {
-    margin-bottom: 8px;
-}
-
-section ul li::before {
-    content: "\2022"; /* Bullet point */
-    color: #333;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    header {
-        padding: 20px 0;
+@media only screen and (max-width: 768px) {
+    .menu ul {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #333;
+        z-index: 1000;
     }
 
-    .profile-img {
-        width: 120px;
-        height: 120px;
+    .menu ul.active {
+        display: block;
     }
 
-    nav.menu ul {
-        flex-direction: column;
+    .menu ul li {
+        display: block;
+        text-align: center;
     }
 
-    nav.menu ul li {
-        margin: 10px 0;
+    .menu .dropdown-content {
+        position: static;
+        display: none;
+        background-color: #333;
     }
 
-    .dropdown-content {
-        min-width: 100px;
+    .menu .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .menu-icon {
+        display: block;
     }
 }
