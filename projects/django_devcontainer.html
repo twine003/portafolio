@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevContainers Portafolio | Jose Williams Garcia Zuniga</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Font Awesome for icons -->
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="../media/image_profile.jpg" alt="Jose Williams Garcia Zuniga" class="profile-img">
+            <h1>Jose Williams Garcia Zuniga</h1>
+            <p>Data Analyst | Python Developer | FrontEnd Developer</p>
+        </div>
+    </header>
+
+    <!-- Menu de navegación -->
+    <nav class="menu">
+        <span class="menu-icon" onclick="toggleMenu()"><i class="fas fa-bars"></i></span>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#summary">Summary</a></li>
+            <li><a href="../index.html#education">Education</a></li>
+            <li><a href="../index.html#technical-skills">Technical Skills</a></li>
+            <li><a href="../index.html#work-experience">Work Experience</a></li>
+            <li><a href="../portfolio.html">Portfolio</a></li>
+            <!-- <li class="dropdown">
+                <a href="#" class="dropbtn">Language <i class="fas fa-angle-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="../index.html">English</a>
+                    <a href="index_fr.html">French</a>
+                    <a href="index_es.html">Spanish</a>
+                </div>
+            </li> -->
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section>
+            <h2>Project Overview</h2>
+            <p>Developing Django web apps with a Postgres database can be slow and complex due to environment configuration. Docker and devcontainers streamline setup so you can build features faster.</p>
+            <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*cv2YKS2qapUgb065keBFug.png" alt="Express img" class="section-img">
+        </section>
+        
+        <section>
+            <h2>The Problem</h2>
+            <p>TWhen starting a new Django project, I wanted an easy way to get up and running with Django and Postgres. 
+                However, most tutorials or sample projects skip over the details of configuring the development environment. 
+                There is a lot of boilerplate code needed to link Django to the database, run migrations, connect Django’s runserver to the Docker containers etc.
+            </p>
+            <p>
+                I could not find a simple, bare-bones template to clone and start developing immediately with Django and Postgres in Docker. 
+                So I created this project to provide a starter devcontainer config that takes care of the initial setup hassles.
+            </p>
+            <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*E6-8NYMvZwtFlCPjdsIe3Q.png" alt="Express img" class="section-img">
+            
+        </section>
+        
+        <section>
+            <h2>Resources</h2>
+            <p>You can read more about my approach in my article at Medium</p>
+            <ul>
+                <li><strong>Medium:</strong> <a href="https://medium.com/@jwgarcia003/accelerate-django-and-postgres-development-with-docker-devcontainers-7b6dc85632b8">
+                    <i class="fas fa-globe"></i>
+                     Accelerate Django and Postgres Development with Docker Devcontainers</a></li>
+                <li><strong>Github:</strong> <a href="https://github.com/twine003/django_postgres_devcontainer"><i class="fas fa-github"></i> https://github.com/twine003/django_postgres_devcontainer</a></li>
+            </ul>
+        </section>
+        
+    </div>
+    
+
+    <script>
+        function toggleMenu() {
+            var menu = document.querySelector('.menu ul');
+            menu.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>

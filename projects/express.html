@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express Portafolio | Jose Williams Garcia Zuniga</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Font Awesome for icons -->
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="../media/image_profile.jpg" alt="Jose Williams Garcia Zuniga" class="profile-img">
+            <h1>Jose Williams Garcia Zuniga</h1>
+            <p>Data Analyst | Python Developer | FrontEnd Developer</p>
+        </div>
+    </header>
+
+    <!-- Menu de navegación -->
+    <nav class="menu">
+        <span class="menu-icon" onclick="toggleMenu()"><i class="fas fa-bars"></i></span>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#summary">Summary</a></li>
+            <li><a href="../index.html#education">Education</a></li>
+            <li><a href="../index.html#technical-skills">Technical Skills</a></li>
+            <li><a href="../index.html#work-experience">Work Experience</a></li>
+            <li><a href="../portfolio.html">Portfolio</a></li>
+            <!-- <li class="dropdown">
+                <a href="#" class="dropbtn">Language <i class="fas fa-angle-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="../index.html">English</a>
+                    <a href="index_fr.html">French</a>
+                    <a href="index_es.html">Spanish</a>
+                </div>
+            </li> -->
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section>
+            <h2>Project Overview</h2>
+            <p><span class="highlight">Express</span> is an application designed to enhance efficiency in planning and executing distribution routes. Using machine learning and optimization techniques, we aim to reduce operational costs and delivery times while improving customer satisfaction.</p>
+            <img src="../media/express.png" alt="Express img" class="section-img">
+        </section>
+        
+        <section>
+            <h2>Key Components of the Project</h2>
+            <p>The <span class="highlight">Express</span> project comprises several critical components:</p>
+            <ul>
+                <li><strong>models.py:</strong> Defines essential data structures supporting the core business logic of Express.</li>
+                <li><strong>admin.py:</strong> Facilitates efficient data management and visualization through Django's admin interface.</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Technologies Used</h2>
+            <p>The <span class="highlight">Express</span> project leverages a robust stack of technologies, including:</p>
+            <ul>
+                <li><strong>Python:</strong> Used for business logic development and integration with optimization and machine learning libraries.</li>
+                <li><strong>Django:</strong> Web framework providing a secure and organized structure for our application.</li>
+                <li><strong>PostgreSQL:</strong> Relational database management system for efficient storage and retrieval of large datasets.</li>
+                <li><strong>Machine Learning and Optimization:</strong> Advanced algorithms for generating optimal routes based on historical data and real-time conditions.</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Benefits and Expected Outcomes</h2>
+            <p>The implementation of <span class="highlight">Express</span> promises several benefits:</p>
+            <ul>
+                <li>Cost reduction through optimized routes and efficient resource management.</li>
+                <li>Enhanced customer experience by meeting precise and consistent delivery times.</li>
+                <li>Improved responsiveness to market demands and operational conditions.</li>
+            </ul>
+        </section>
+    </div>
+    
+
+    <script>
+        function toggleMenu() {
+            var menu = document.querySelector('.menu ul');
+            menu.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>

@@ -101,7 +101,7 @@ nav.menu ul li a:hover {
 }
 
 section {
-    padding: 40px 0;
+    padding: 20px 0;
 }
 
 h2 {
@@ -113,6 +113,9 @@ h2 {
 .job {
     margin-bottom: 30px;
 }
+
+
+
 
 footer {
     background-color: #333;
@@ -126,6 +129,35 @@ footer {
 
 footer a {
     color:white
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between; /* Para alinear contenido a izquierda y derecha */
+    align-items: center; /* Para centrar verticalmente */
+    flex-wrap: wrap; /* Asegura que los elementos se ajusten en pantalla pequeña */
+}
+
+.contact-info {
+    text-align: left; /* Alinea el texto a la izquierda */
+    margin-bottom: 10px; /* Espacio entre elementos */
+}
+
+.qr-code {
+    text-align: right; /* Alinea QR a la derecha */
+}
+
+.qr_image {
+    max-width: 100px; /* Ajusta el tamaño del QR */
+    height: auto;
+}
+
+.contact-info p {
+    margin: 5px 0; /* Espacio entre párrafos */
+}
+
+.contact-info p i {
+    margin-right: 5px; /* Espacio entre iconos y texto */
 }
 
 section h2 i {
@@ -204,6 +236,16 @@ section ul li::before {
 
     header {
         padding: 20px 0;
+    }
+
+    .footer-content {
+        flex-direction: column; /* Apila los elementos en pantalla pequeña */
+        text-align: center; /* Centra el texto en pantalla pequeña */
+    }
+
+    .qr-code {
+        text-align: center; /* Centra el QR en pantalla pequeña */
+        margin-top: 10px; /* Espacio entre el texto y el QR */
     }
 
     .profile-img {
