@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jose Williams Garcia Zuniga | Data Analyst | Python Developer</title>
+    <meta name="description" content="Profile of Jose Williams Garcia Zuniga, a dedicated and results-driven Data Analyst and Python Developer.">
+    <meta name="keywords" content="Jose Williams Garcia Zuniga, Data Analyst, Python Developer, Data Science, Machine Learning">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Font Awesome for icons -->
 </head>
@@ -12,30 +14,28 @@
         <div class="container">
             <img src="media/image_profile.jpg" alt="Jose Williams Garcia Zuniga" class="profile-img">
             <h1>Jose Williams Garcia Zuniga</h1>
-            <p>Analyste de données | Développeur Python</p>
+            <p>Data Analyst | Python Developer | FrontEnd Developer</p>
         </div>
     </header>
 
     <!-- Menu de navegación -->
     <nav class="menu">
-        <input type="checkbox" id="menu-toggle" class="menu-toggle">
-        <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
+        <span class="menu-icon" onclick="toggleMenu()"><i class="fas fa-bars"></i></span>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="#summary">Summary</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#technical-skills">Technical Skills</a></li>
             <li><a href="#work-experience">Work Experience</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li class="dropdown">
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <!-- <li class="dropdown">
                 <a href="#" class="dropbtn">Language <i class="fas fa-angle-down"></i></a>
                 <div class="dropdown-content">
                     <a href="index.html">English</a>
                     <a href="index_fr.html">French</a>
                     <a href="index_es.html">Spanish</a>
                 </div>
-            </li>
-            <li><a href="portfolio.html">Portfolio</a></li>
+            </li> -->
         </ul>
     </nav>
 
@@ -122,8 +122,8 @@
 
     <footer>
         <div class="container">
-            <p><i class="fas fa-map-marker-alt"></i> 5590 Bd Couture, St-Leonard, Montreal, Quebec, H1R1E3</p>
-            <p><i class="fas fa-envelope"></i> <a href="mailto:jwgarcia003@gmail.com">jwgarcia003@gmail.com</a></p>
+            <p><i class="fas fa-map-marker-alt"></i> St-Leonard, Montreal, Quebec, Canada</p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:jwgarciaz003@gmail.com">jwgarciaz003@gmail.com</a></p>
             <!-- <p><i class="fas fa-phone"></i> <a href="tel:+14387799003">+1 438 779 9003</a></p> -->
             <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/jwgarciaz" target="_blank">LinkedIn Profile</a></p>
             <p>&copy; 2024 Jose Williams Garcia Zuniga. All rights reserved.</p>
@@ -133,12 +133,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script> <!-- Font Awesome script -->
 
     <script>
-
-        document.querySelectorAll('.menu ul li a').forEach(item => {
-            item.addEventListener('click', () => {
-                document.getElementById('menu-toggle').checked = false;
-            });
-        });
+        function toggleMenu() {
+            var menu = document.querySelector('.menu ul');
+            menu.classList.toggle('show');
+        }
     </script>
 </body>
 </html>

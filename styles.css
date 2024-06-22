@@ -178,6 +178,15 @@ section ul li::before {
     margin-bottom: 10px;
 }
 
+.section-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .project-info h2 {
     font-size: 1.5em;
     margin-top: 0;
@@ -202,27 +211,6 @@ section ul li::before {
         height: 120px;
     }
 
-    nav.menu ul {
-        flex-direction: column;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        left: -100%;
-        transition: left 0.3s ease;
-        background-color: #333;
-        text-align: center;
-        padding-top: 80px; /* Ajuste para que no se superponga al header */
-        z-index: 1000;
-    }
-
-    nav.menu ul.active {
-        left: 0;
-    }
-
-    nav.menu ul li {
-        margin: 10px 0;
-    }
-
     .dropdown-content {
         min-width: 100px;
     }
@@ -233,17 +221,23 @@ section ul li::before {
         top: 20px;
         right: 20px;
         z-index: 1500;
-        color: #fff;
+        color: #715858;
         font-size: 24px;
         cursor: pointer;
     }
 
-    .menu-toggle {
+    nav.menu ul {
         display: none;
+        flex-direction: column;
     }
 
-    .menu-toggle:checked + .menu ul {
-        left: 0;
+    nav.menu ul.show {
+        display: flex;
+    }
+
+    nav.menu ul li {
+        display: block;
+        margin: 0;
     }
 
     .projects {
