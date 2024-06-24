@@ -100,6 +100,27 @@ nav.menu ul li a:hover {
     background-color: #555;
 }
 
+.cta-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #ff5300;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.cta-button:hover {
+    background-color: #b23b01;
+}
+
 section {
     padding: 20px 0;
 }
@@ -237,7 +258,7 @@ section ul li::before {
     header {
         padding: 20px 0;
     }
-
+    
     .footer-content {
         flex-direction: column; /* Apila los elementos en pantalla pequeña */
         text-align: center; /* Centra el texto en pantalla pequeña */
