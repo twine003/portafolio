@@ -1,151 +1,1158 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jose Williams Garcia Zuniga | Data Analyst | Python Developer</title>
-    <meta name="description" content="Profile of Jose Williams Garcia Zuniga, a dedicated and results-driven Data Analyst and Python Developer.">
-    <meta name="keywords" content="Jose Williams Garcia Zuniga, Data Analyst, Python Developer, Data Science, Machine Learning">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Font Awesome for icons -->
+    <title>Jhon Erick Mejia - Desarrollador de Software</title>
+    <meta name="description" content="Portafolio profesional de Jhon Erick Mejia, Desarrollador de Software especializado en React, Node.js y tecnologías web modernas.">
+    
+    <style>
+        /* Reset y Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --accent: #06b6d4;
+            --accent-dark: #0891b2;
+            --text: #334155;
+            --text-light: #64748b;
+            --bg: #ffffff;
+            --bg-secondary: #f8fafc;
+            --border: #e2e8f0;
+            --shadow: rgba(15, 23, 42, 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            overflow-x: hidden;
+        }
+
+        /* Header y Navegación */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 1px 3px var(--shadow);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            box-shadow: 0 4px 6px var(--shadow);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 3px;
+            background: var(--primary);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg) 100%);
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            flex: 1;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-text .highlight {
+            color: var(--accent);
+        }
+
+        .hero-text h2 {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(6, 182, 212, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            flex: 0 0 300px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid white;
+            box-shadow: 0 20px 40px var(--shadow);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Secciones */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section.fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        section.fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .section-header .underline {
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Resumen */
+        .summary-content {
+            background: var(--bg-secondary);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px var(--shadow);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            border-left: 4px solid var(--accent);
+        }
+
+        /* Educación */
+        .education-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .education-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px var(--shadow);
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .education-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px var(--shadow);
+        }
+
+        .education-card h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .institution {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .education-card ul {
+            margin-left: 1.5rem;
+            color: var(--text);
+        }
+
+        .education-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .skill-level {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-dark) 100%);
+            border-radius: 4px;
+            width: 0;
+            transition: width 1s ease;
+        }
+
+        .skill-item.animate .skill-progress {
+            animation: fillBar 1s ease forwards;
+        }
+
+        /* Experiencia */
+        .experience-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+
+        .experience-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 16px var(--shadow);
+        }
+
+        .experience-header {
+            margin-bottom: 1rem;
+        }
+
+        .experience-header h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .company {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .experience-card ul {
+            margin-left: 1.5rem;
+            color: var(--text);
+        }
+
+        .experience-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: var(--bg-secondary);
+            color: var(--accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent);
+        }
+
+        .qr-code {
+            margin: 2rem 0;
+        }
+
+        .qr-code img {
+            width: 150px;
+            height: 150px;
+            border-radius: 8px;
+            background: white;
+            padding: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 4px 12px var(--shadow);
+                transform: translateY(-120%);
+                transition: transform 0.3s ease;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text h2 {
+                font-size: 1.2rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                flex: 0 0 200px;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 200px;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .experience-timeline {
+                padding-left: 1rem;
+            }
+
+            .experience-item {
+                padding-left: 1.5rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            * {
+                background: white !important;
+                color: black !important;
+                box-shadow: none !important;
+                text-shadow: none !important;
+            }
+
+            header, .menu-toggle, .hero-buttons, .btn, footer .social-links {
+                display: none !important;
+            }
+
+            body {
+                font-size: 11pt;
+                line-height: 1.4;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 2rem 1rem;
+                page-break-after: avoid;
+            }
+
+            .hero-content {
+                flex-direction: row;
+                gap: 2rem;
+            }
+
+            .hero-text {
+                animation: none;
+                opacity: 1;
+                transform: none;
+            }
+
+            .hero-image {
+                animation: none;
+                opacity: 1;
+                transform: none;
+                flex: 0 0 150px;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+                border: 2px solid black;
+            }
+
+            .hero-text h1 {
+                font-size: 24pt;
+                margin-bottom: 0.5rem;
+            }
+
+            .hero-text h2 {
+                font-size: 14pt;
+                margin-bottom: 0.5rem;
+            }
+
+            .hero-text p {
+                font-size: 10pt;
+                margin-bottom: 0;
+            }
+
+            section {
+                padding: 1.5rem 1rem;
+                page-break-inside: avoid;
+            }
+
+            section.fade-in {
+                opacity: 1;
+                transform: none;
+            }
+
+            .section-header {
+                margin-bottom: 1rem;
+            }
+
+            .section-header h2 {
+                font-size: 16pt;
+                border-bottom: 2px solid black;
+                padding-bottom: 0.5rem;
+            }
+
+            .underline {
+                display: none;
+            }
+
+            .education-card, .experience-card {
+                border: 1px solid black !important;
+                margin-bottom: 1rem;
+                padding: 1rem;
+                page-break-inside: avoid;
+            }
+
+            .education-card:hover, .experience-card:hover {
+                transform: none;
+            }
+
+            .skill-bar {
+                border: 1px solid black !important;
+            }
+
+            .skill-progress {
+                background: black !important;
+            }
+
+            .experience-timeline::before {
+                background: black !important;
+            }
+
+            .tech-tags {
+                margin-top: 0.5rem;
+            }
+
+            .tech-tag {
+                border: 1px solid black !important;
+                background: white !important;
+                color: black !important;
+            }
+
+            footer {
+                padding: 1rem;
+                border-top: 2px solid black;
+            }
+
+            .qr-code img {
+                width: 100px;
+                height: 100px;
+                border: 1px solid black;
+            }
+
+            a {
+                text-decoration: none;
+                color: black !important;
+            }
+
+            a[href]:after {
+                content: " (" attr(href) ")";
+                font-size: 8pt;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <img src="media/image_profile.jpg" alt="Jose Williams Garcia Zuniga" class="profile-img">
-            <h1>Jose Williams Garcia Zuniga</h1>
-            <p>Data Analyst | Python Developer | FrontEnd Developer</p>
-        </div>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="#" class="logo">JEM</a>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#resumen">Resumen</a></li>
+                <li><a href="#educacion">Educación</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#experiencia">Experiencia</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Menu de navegación -->
-    <nav class="menu">
-        <span class="menu-icon" onclick="toggleMenu()"><i class="fas fa-bars"></i></span>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#summary">Summary</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#technical-skills">Technical Skills</a></li>
-            <li><a href="#work-experience">Work Experience</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <!-- <li class="dropdown">
-                <a href="#" class="dropbtn">Language <i class="fas fa-angle-down"></i></a>
-                <div class="dropdown-content">
-                    <a href="index.html">English</a>
-                    <a href="index_fr.html">French</a>
-                    <a href="index_es.html">Spanish</a>
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Jhon Erick <span class="highlight">Mejia</span></h1>
+                <h2>Desarrollador de Software</h2>
+                <p>Desarrollador con experiencia en la creación de aplicaciones web modernas. Especializado en React, Node.js, y tecnologías cloud. Apasionado por crear soluciones eficientes y escalables.</p>
+                <div class="hero-buttons">
+                    <a href="#contacto" class="btn btn-primary">Contactar</a>
+                    <a href="#experiencia" class="btn btn-secondary">Ver Experiencia</a>
                 </div>
-            </li> -->
-        </ul>
-    </nav>
-
-    <div class="container">
-        <section id="summary">
-            <h2><i class="fas fa-user"></i> Summary</h2>
-            <p>Dedicated and results-driven Data Analyst and Python Developer with a passion for leveraging technology to solve complex problems and derive actionable insights from data. Experienced in data analysis, statistical methods, and programming languages. Skilled in analyzing large datasets, identifying patterns, and presenting findings effectively. Thrives in collaborative environments.</p>
-            <div class="cta-container">
-                <a href="portfolio.html" class="cta-button">View My Portfolio</a>
             </div>
-        </section>
+            <div class="hero-image">
+                <img src="media/profile.jpg" alt="Jhon Erick Mejia" class="profile-image">
+            </div>
+        </div>
+    </section>
 
-        <section id="education">
-            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-            <p><strong>Bachelor of Science in Systems Engineering</strong><br>National University of Engineering of Nicaragua, Nicaragua<br>Graduation Year: 2018</p>
-            <p><strong>Data Analytics Program</strong><br>Masterschool<br>Completion Date: 2023</p>
-        </section>
+    <!-- Resumen -->
+    <section id="resumen" class="fade-in">
+        <div class="section-header">
+            <h2>Resumen Profesional</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="summary-content">
+            <p>Desarrollador de software con sólida experiencia en el desarrollo de aplicaciones web full-stack. Experiencia comprobada en la implementación de soluciones tecnológicas que optimizan procesos y mejoran la experiencia del usuario. Hábil en la colaboración con equipos multidisciplinarios y en la adopción de nuevas tecnologías para resolver desafíos complejos.</p>
+        </div>
+    </section>
 
-        <section id="technical-skills">
-            <h2><i class="fas fa-code"></i> Technical Skills</h2>
-            <ul>
-                <li>Programming Languages: Python (NumPy, Pandas, Matplotlib, SciPy), JavaScript (Angular, React), HTML, CSS</li>
-                <li>Data Analysis: Scikit-learn, BeautifulSoup, Scrapy</li>
-                <li>Database Management: PostgreSQL, MySQL, SQLite, Microsoft SQL Server</li>
-                <li>Data Visualization: Seaborn, Plotly, Tableau, Power BI, Excel, SAS, SPSS</li>
-                <li>Version Control: Git</li>
-            </ul>
-        </section>
-        <section id="work-experience">
-            <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
-    
-                <div class="job">
-                    <h3>Jr Data Analyst | Smart Business Solutions (SMBS)</h3>
-                    <p>2020-2021</p>
-                    <p>Project: iMPACT Risk Management Solution (Benchmark Analytics®)</p>
-                    <ul>
-                        <li>Designed and implemented data pipelines for seamless ingestion, processing, and transformation of data.</li>
-                        <li>Collaborated with data scientists to prepare and analyze data for AI/ML-based predictive risk models.</li>
-                        <li>Deployed APIs for self-service risk visualization platforms.</li>
-                        <li>Utilized Python, SQL, and data analytics libraries extensively.</li>
-                    </ul>
-                </div>
-    
-                <div class="job">
-                    <h3>Senior Python Developer | Smart Business Solutions (SMBS)</h3>
-                    <p>2019-2021</p>
-                    <p>Project: Various client projects (Applaudo Studios)</p>
-                    <ul>
-                        <li>Designed, developed, and deployed backend services using Python and Django.</li>
-                        <li>Collaborated with frontend developers to implement responsive client-side functionality using Angular and React.</li>
-                        <li>Managed version control with Git (GitHub) and project management with JIRA.</li>
-                    </ul>
-                </div>
-    
-                <div class="job">
-                    <h3>Senior Python Developer | Smart Business Solutions (SMBS)</h3>
-                    <p>2018-2021</p>
-                    <p>Project: Various client projects (SMBS)</p>
-                    <ul>
-                        <li>Led design, development, and maintenance of robust web applications using Django.</li>
-                        <li>Utilized Django ORM for database schema definition and manipulation.</li>
-                        <li>Developed APIs with Django REST Framework to enhance backend-frontend communication.</li>
-                    </ul>
-                </div>
-    
-                <div class="job">
-                    <h3>Director of Technology | Piki App</h3>
-                    <p>January 2019 - August 2019 (Managua, Nicaragua)</p>
-                    <p>Led innovation and applied real-world ideas for technological advancements.</p>
-                </div>
-    
-                <div class="job">
-                    <h3>IT Manager | DECIMO</h3>
-                    <p>October 2015 - August 2018</p>
-                    <p>Managed IT operations and implemented technological solutions.</p>
-                </div>
-        </section>
-    </div>
-    
+    <!-- Educación -->
+    <section id="educacion" class="fade-in">
+        <div class="section-header">
+            <h2>Educación</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="education-grid">
+            <div class="education-card">
+                <h3>Ingeniería de Software</h3>
+                <p class="institution">Universidad Técnológica de Pereira</p>
+                <p class="date">Enero 2019 - Diciembre 2024</p>
+                <ul>
+                    <li>Especialización en desarrollo de software y arquitectura de sistemas</li>
+                    <li>Proyectos destacados en desarrollo web y aplicaciones móviles</li>
+                    <li>Participación en hackathons y competencias de programación</li>
+                </ul>
+            </div>
+            <div class="education-card">
+                <h3>Certificaciones Profesionales</h3>
+                <p class="institution">Plataformas Online</p>
+                <p class="date">2020 - Presente</p>
+                <ul>
+                    <li>React - The Complete Guide (Udemy)</li>
+                    <li>Node.js Developer Certification</li>
+                    <li>AWS Cloud Practitioner</li>
+                    <li>Advanced JavaScript Concepts</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-    
-
-    
-    
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="contact-info">
-                    <p><i class="fas fa-map-marker-alt"></i> St-Leonard, Montreal, Quebec, Canada</p>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:jwgarciaz003@gmail.com">jwgarciaz003@gmail.com</a></p>
-                    <!-- <p><i class="fas fa-phone"></i> <a href="tel:+14387799003">+1 438 779 9003</a></p> -->
-                    <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/jwgarciaz" target="_blank">LinkedIn Profile</a></p>
-                    <p>&copy; 2024 Jose Williams Garcia Zuniga. All rights reserved.</p>
+    <!-- Habilidades -->
+    <section id="habilidades" class="fade-in">
+        <div class="section-header">
+            <h2>Habilidades Técnicas</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Frontend</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">React / Next.js</span>
+                        <span class="skill-level">90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-level="90"></div>
+                    </div>
                 </div>
-                <div class="qr-code">
-                    <img src="media/profile_qr.png" alt="" class="qr_image">
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">JavaScript / TypeScript</span>
+                        <span class="skill-level">85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-level="85"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">HTML / CSS / Tailwind</span>
+                        <span class="skill-level">95%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-level="95"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Backend</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Node.js / Express</span>
+                        <span class="skill-level">85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-level="85"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Python / Django</span>
+                        <span class="skill-level">75%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-level="75"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">PostgreSQL / MongoDB</span>
+                        <span class="skill-level">80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-level="80"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>DevOps & Tools</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Git / GitHub</span>
+                        <span class="skill-level">90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-level="90"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Docker / CI/CD</span>
+                        <span class="skill-level">70%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-level="70"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">AWS / Cloud Services</span>
+                        <span class="skill-level">75%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-level="75"></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </footer>
-    
+    </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script> <!-- Font Awesome script -->
+    <!-- Experiencia -->
+    <section id="experiencia" class="fade-in">
+        <div class="section-header">
+            <h2>Experiencia Profesional</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h3>Desarrollador Full Stack</h3>
+                        <p class="company">Tech Solutions Inc.</p>
+                        <p class="date">Julio 2023 - Presente</p>
+                    </div>
+                    <ul>
+                        <li>Desarrollo de aplicaciones web utilizando React y Node.js</li>
+                        <li>Implementación de APIs RESTful y microservicios</li>
+                        <li>Optimización de rendimiento que resultó en 40% de mejora en tiempos de carga</li>
+                        <li>Colaboración con equipos de diseño y producto en metodología Agile</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h3>Desarrollador Frontend</h3>
+                        <p class="company">Digital Innovations Co.</p>
+                        <p class="date">Enero 2022 - Junio 2023</p>
+                    </div>
+                    <ul>
+                        <li>Desarrollo de interfaces de usuario responsivas con React y Tailwind CSS</li>
+                        <li>Integración con APIs backend y servicios de terceros</li>
+                        <li>Implementación de testing automatizado con Jest y React Testing Library</li>
+                        <li>Mejora de accesibilidad web (WCAG 2.1)</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                        <span class="tech-tag">Jest</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h3>Desarrollador Junior</h3>
+                        <p class="company">StartUp Labs</p>
+                        <p class="date">Junio 2021 - Diciembre 2021</p>
+                    </div>
+                    <ul>
+                        <li>Desarrollo de componentes reutilizables para aplicación web</li>
+                        <li>Mantenimiento y mejora de código existente</li>
+                        <li>Participación en code reviews y sesiones de pair programming</li>
+                        <li>Aprendizaje de mejores prácticas y patrones de diseño</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">HTML/CSS</span>
+                        <span class="tech-tag">Git</span>
+                        <span class="tech-tag">Agile</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="footer-content">
+            <h2>Contacto</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <a href="mailto:jhonerick@example.com">jhonerick@example.com</a>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <a href="tel:+573001234567">+57 300 123 4567</a>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Pereira, Colombia</span>
+                </div>
+            </div>
+            
+            <div class="qr-code">
+                <img src="media/qr.png" alt="Código QR - Portafolio">
+                <p>Escanea para ver mi portafolio</p>
+            </div>
+
+            <div class="social-links">
+                <a href="https://github.com/jhonerickmejia" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/jhonerickmejia" target="_blank">LinkedIn</a>
+                <a href="https://twitter.com/jhonerickmejia" target="_blank">Twitter</a>
+            </div>
+
+            <p style="margin-top: 2rem; opacity: 0.8;">&copy; 2025 Jhon Erick Mejia. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
     <script>
-        function toggleMenu() {
-            var menu = document.querySelector('.menu ul');
-            menu.classList.toggle('show');
+        // Navegación móvil
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer para animaciones de scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Animar barras de habilidades
+                    if (entry.target.id === 'habilidades') {
+                        animateSkills();
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observar todas las secciones con fade-in
+        document.querySelectorAll('.fade-in').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Animar barras de progreso de habilidades
+        function animateSkills() {
+            const skillItems = document.querySelectorAll('.skill-item');
+            skillItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('animate');
+                    const progress = item.querySelector('.skill-progress');
+                    const level = progress.getAttribute('data-level');
+                    progress.style.width = level + '%';
+                }, index * 100);
+            });
         }
+
+        // Prevenir re-animación de skills
+        let skillsAnimated = false;
+        const skillsSection = document.getElementById('habilidades');
+        const skillsObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !skillsAnimated) {
+                animateSkills();
+                skillsAnimated = true;
+            }
+        }, observerOptions);
+        skillsObserver.observe(skillsSection);
     </script>
 </body>
 </html>
