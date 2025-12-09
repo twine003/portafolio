@@ -1,106 +1,204 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PIKI Portafolio | Jose Williams Garcia Zuniga</title>
+    <title>PIKI Portfolio | Jose Williams Garcia Zuniga</title>
     <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Font Awesome for icons -->
+    <style>
+        /* Added custom styles for video embed */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            margin: 2rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <img src="../media/image_profile.jpg" alt="Jose Williams Garcia Zuniga" class="profile-img">
-            <h1>Jose Williams Garcia Zuniga</h1>
-            <p>Data Analyst | Python Developer | FrontEnd Developer</p>
-        </div>
+    <header class="sticky-header">
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">JWGZ</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#summary">Summary</a></li>
+                <li><a href="../index.html#education">Education</a></li>
+                <li><a href="../index.html#skills">Skills</a></li>
+                <li><a href="../index.html#experience">Experience</a></li>
+                <li><a href="../portfolio.html">Portfolio</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Menu de navegación -->
-    <nav class="menu">
-        <span class="menu-icon" onclick="toggleMenu()"><i class="fas fa-bars"></i></span>
-        <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../index.html#summary">Summary</a></li>
-            <li><a href="../index.html#education">Education</a></li>
-            <li><a href="../index.html#technical-skills">Technical Skills</a></li>
-            <li><a href="../index.html#work-experience">Work Experience</a></li>
-            <li><a href="../portfolio.html">Portfolio</a></li>
-            <!-- <li class="dropdown">
-                <a href="#" class="dropbtn">Language <i class="fas fa-angle-down"></i></a>
-                <div class="dropdown-content">
-                    <a href="../index.html">English</a>
-                    <a href="index_fr.html">French</a>
-                    <a href="index_es.html">Spanish</a>
-                </div>
-            </li> -->
-        </ul>
-    </nav>
-
-    <section id="summary">
+    <section class="hero-section project-hero">
         <div class="container">
-            <iframe class="section-img" src="https://www.youtube.com/embed/Y5n0ifUzzbA" frameborder="0" allowfullscreen></iframe>
-            <h2>Piki Delivery App</h2>
+            <h1 class="fade-in">Piki Delivery App</h1>
+            <p class="hero-subtitle fade-in">Revolutionizing Grocery Delivery in Nicaragua</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <section class="card fade-in">
+            <h2>Project Overview</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/Y5n0ifUzzbA" allowfullscreen></iframe>
+            </div>
             <p>Piki App was designed to provide a seamless shopping experience, catering to the needs of busy individuals who prefer convenience without compromising on quality. The app partners with local supermarkets, such as La Colonia, to offer a wide range of products, ensuring that customers receive the best available options.</p>
             <img src="../media/piki.png" alt="How Piki App Works" class="section-img">
-        </div>
-    </section>
+        </section>
 
-
-    <section id="key-features">
-        <div class="container">
+        <section class="card fade-in">
             <h2>Key Features of Piki App</h2>
-            <ul>
-                <li><strong>User-Friendly Interface:</strong> The app's interface is intuitive and easy to navigate, making it simple for users to browse through various categories and select their desired items.</li>
-                <li><strong>Piki Shoppers (Pikers):</strong> Dedicated Piki Shoppers handle the task of selecting and purchasing items on behalf of customers. These shoppers are trained to pick the best products, ensuring quality and freshness.</li>
-                <li><strong>Reliable Delivery:</strong> Piki App guarantees timely delivery of groceries. In the event of any missing or damaged items, customers can easily report issues through the app or other communication channels such as WhatsApp, Messenger, and Instagram.</li>
-                <li><strong>Cost-Effective Solutions:</strong> Delivery costs are kept minimal, thanks to strategic partnerships with supermarkets and an extensive network of delivery routes.</li>
-                <li><strong>Promotions and Discounts:</strong> Piki App frequently offers promotions and discounts, providing additional value to its users.</li>
+            <ul class="feature-list">
+                <li>
+                    <strong>User-Friendly Interface:</strong>
+                    <p>The app's interface is intuitive and easy to navigate, making it simple for users to browse through various categories and select their desired items.</p>
+                </li>
+                <li>
+                    <strong>Piki Shoppers (Pikers):</strong>
+                    <p>Dedicated Piki Shoppers handle the task of selecting and purchasing items on behalf of customers. These shoppers are trained to pick the best products, ensuring quality and freshness.</p>
+                </li>
+                <li>
+                    <strong>Reliable Delivery:</strong>
+                    <p>Piki App guarantees timely delivery of groceries. In the event of any missing or damaged items, customers can easily report issues through the app or other communication channels such as WhatsApp, Messenger, and Instagram.</p>
+                </li>
+                <li>
+                    <strong>Cost-Effective Solutions:</strong>
+                    <p>Delivery costs are kept minimal, thanks to strategic partnerships with supermarkets and an extensive network of delivery routes.</p>
+                </li>
+                <li>
+                    <strong>Promotions and Discounts:</strong>
+                    <p>Piki App frequently offers promotions and discounts, providing additional value to its users.</p>
+                </li>
             </ul>
             <img src="../media/piki_piker.jpg" alt="Piki Shoppers" class="section-img">
-        </div>
-    </section>
+        </section>
 
-    <section id="my-role">
-        <div class="container">
+        <section class="card fade-in">
             <h2>My Role in Piki App</h2>
             <p>As the Director of Technology at Piki App, I led the innovation and development efforts, ensuring the application was built using the latest technologies and best practices. My responsibilities included:</p>
-            <ul>
-                <li><strong>Backend Development:</strong> Utilizing Python and Django to create robust and scalable backend services that handle user authentication, order processing, and real-time inventory management.</li>
-                <li><strong>API Integration:</strong> Developing APIs to facilitate smooth communication between the frontend and backend systems, ensuring a seamless user experience.</li>
-                <li><strong>Data Analysis:</strong> Implementing data analytics solutions to monitor user behavior, optimize inventory management, and improve service efficiency.</li>
-                <li><strong>Team Collaboration:</strong> Working closely with frontend developers, designers, and project managers to align on project goals and deliverables.</li>
+            <ul class="feature-list">
+                <li>
+                    <strong>Backend Development:</strong>
+                    <p>Utilizing Python and Django to create robust and scalable backend services that handle user authentication, order processing, and real-time inventory management.</p>
+                </li>
+                <li>
+                    <strong>API Integration:</strong>
+                    <p>Developing APIs to facilitate smooth communication between the frontend and backend systems, ensuring a seamless user experience.</p>
+                </li>
+                <li>
+                    <strong>Data Analysis:</strong>
+                    <p>Implementing data analytics solutions to monitor user behavior, optimize inventory management, and improve service efficiency.</p>
+                </li>
+                <li>
+                    <strong>Team Collaboration:</strong>
+                    <p>Working closely with frontend developers, designers, and project managers to align on project goals and deliverables.</p>
+                </li>
             </ul>
-        </div>
-    </section>
+        </section>
 
-    <section id="project-status">
-        <div class="container">
+        <section class="card fade-in">
             <h2>Project Status</h2>
-            <p>**Piki App** is no longer operational. For more information and historical references, please visit:</p>
-            <ul>
-                <li><a href="https://pikiapp.com/" target="_blank"><i class="fas fa-globe"></i> Official Website</a></li>
-                <li><a href="https://www.facebook.com/PikiApp" target="_blank"><i class="fab fa-facebook"></i> Facebook Page</a></li>
-                <li><a href="https://apkpure.com/es/piki-app-delivery/com.piki.app" target="_blank"><i class="fab fa-android"></i> APK Download (Android)</a></li>
+            <p><strong>Piki App</strong> is no longer operational. For more information and historical references, please visit:</p>
+            <ul class="resource-list">
+                <li><a href="https://pikiapp.com/" target="_blank">Official Website</a></li>
+                <li><a href="https://www.facebook.com/PikiApp" target="_blank">Facebook Page</a></li>
+                <li><a href="https://apkpure.com/es/piki-app-delivery/com.piki.app" target="_blank">APK Download (Android)</a></li>
             </ul>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <p><i class="fas fa-map-marker-alt"></i> St-Leonard, Montreal, Quebec, Canada</p>
-            <p><i class="fas fa-envelope"></i> <a href="mailto:jwgarciaz003@gmail.com">jwgarciaz003@gmail.com</a></p>
-            <!-- <p><i class="fas fa-phone"></i> <a href="tel:+14387799003">+1 438 779 9003</a></p> -->
-            <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/jwgarciaz" target="_blank">LinkedIn Profile</a></p>
-            <p>&copy; 2024 Jose Williams Garcia Zuniga. All rights reserved.</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>St-Leonard, Montreal, Quebec, Canada</p>
+                    <p><a href="mailto:jwgarciaz003@gmail.com">jwgarciaz003@gmail.com</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <p><a href="https://www.linkedin.com/in/jwgarciaz" target="_blank">LinkedIn Profile</a></p>
+                    <p><a href="https://github.com/twine003" target="_blank">GitHub Profile</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Jose Williams Garcia Zuniga. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        function toggleMenu() {
-            var menu = document.querySelector('.menu ul');
-            menu.classList.toggle('show');
-        }
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active');
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        let lastScroll = 0;
+        const header = document.querySelector('.sticky-header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                header.classList.remove('scroll-up');
+                return;
+            }
+            
+            if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
+                header.classList.remove('scroll-up');
+                header.classList.add('scroll-down');
+            } else if (currentScroll < lastScroll && header.classList.contains('scroll-down')) {
+                header.classList.remove('scroll-down');
+                header.classList.add('scroll-up');
+            }
+            lastScroll = currentScroll;
+        });
     </script>
 </body>
 </html>
