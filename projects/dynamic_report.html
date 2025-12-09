@@ -1,298 +1,334 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Django Dynamic Report Portafolio | Jose Williams Garcia Zuniga</title>
+    <title>Django Dynamic Report Portfolio | Jose Williams Garcia Zuniga</title>
     <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Font Awesome for icons -->
-    <!-- Incluir CSS de Prism.js -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism.min.css">
-    <!-- Opcional: Incluir tema adicional de Prism.js (por ejemplo, tema "okaidia" para un estilo oscuro) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-okaidia.min.css">
+    <style>
+        /* Added custom styles for code blocks */
+        pre[class*="language-"] {
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        code[class*="language-"] {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .resource-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .resource-list li {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: var(--card-bg);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <img src="../media/image_profile.jpg" alt="Jose Williams Garcia Zuniga" class="profile-img">
-            <h1>Jose Williams Garcia Zuniga</h1>
-            <p>Dynamic Reports with Django | Python Developer | FrontEnd Developer</p>
-        </div>
+    <header class="sticky-header">
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">JWGZ</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#summary">Summary</a></li>
+                <li><a href="../index.html#education">Education</a></li>
+                <li><a href="../index.html#skills">Skills</a></li>
+                <li><a href="../index.html#experience">Experience</a></li>
+                <li><a href="../portfolio.html">Portfolio</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Menu de navegación -->
-    <nav class="menu">
-        <span class="menu-icon" onclick="toggleMenu()"><i class="fas fa-bars"></i></span>
-        <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../index.html#summary">Summary</a></li>
-            <li><a href="../index.html#education">Education</a></li>
-            <li><a href="../index.html#technical-skills">Technical Skills</a></li>
-            <li><a href="../index.html#work-experience">Work Experience</a></li>
-            <li><a href="../portfolio.html">Portfolio</a></li>
-            <!-- <li class="dropdown">
-                <a href="#" class="dropbtn">Language <i class="fas fa-angle-down"></i></a>
-                <div class="dropdown-content">
-                    <a href="../index.html">English</a>
-                    <a href="index_fr.html">French</a>
-                    <a href="index_es.html">Spanish</a>
-                </div>
-            </li> -->
-        </ul>
-    </nav>
+    <section class="hero-section project-hero">
+        <div class="container">
+            <h1 class="fade-in">Dynamic Reports with Django</h1>
+            <p class="hero-subtitle fade-in">Interactive Report Generation with Dynamic Parameters</p>
+        </div>
+    </section>
 
-    <div class="container">
-        <section>
+    <main class="container">
+        <section class="card fade-in">
             <h2>Project Overview</h2>
             <p>In many web applications, generating and displaying reports is a critical feature. Django, with its robust admin interface and powerful ORM, provides a convenient framework for implementing this functionality. This project explores how to leverage Django's admin site to generate and display reports, incorporating dynamic form handling and interactive data visualization.</p>
-            <img src="../media/dynamicrep_portada.png" alt="Express img" class="section-img">
+            <img src="../media/dynamicrep_portada.png" alt="Dynamic Reports Overview" class="section-img">
         </section>
         
-        <section>
+        <section class="card fade-in">
             <h2>Data Models</h2>
-            <p>
-                I start by defining two key models: Report and ReportParameter. 
-                Report stores the report information, including the SQL query or BI URL, and ReportParameter defines the parameters that can be used in the reports.
-            </p>
-            <p>
-                <pre><code class="language-python">
-    # models.py
-    
-    from django.db import models
-    
-    PARAMETER_TYPES = [
-        ('text', 'Text'),
-        ('integer', 'Integer'),
-        ('decimal', 'Decimal'),
-        ('date', 'Date'),
-        ('boolean', 'Boolean'),
-        ('choice_list', 'Choice List'),
-        ('multiple_choice', 'Multiple Choice'),
-        ('json', 'JSON or Dict'),
-    ]
-    
-    class ReportParameter(models.Model):
-        report = models.ForeignKey('Report', on_delete=models.CASCADE, related_name="parameters")
-        name = models.CharField(max_length=255)
-        type = models.CharField(max_length=50, choices=PARAMETER_TYPES)
-        required = models.BooleanField(default=False)
-        data = models.CharField(max_length=500, null=True, blank=True, 
-            help_text="List of data to select from in case of choice list or multiple choice, " \
-            "use the convention app.model to generate data from an existing model")
-    
-        def __str__(self):
-            return self.name
-    
-    class Report(models.Model):
-        name = models.CharField(max_length=255)
-        sql_query = models.TextField(null=True, blank=True)
-        bi_url = models.URLField(null=True, blank=True)
-    
-        def __str__(self):
-            return self.name
-                </code></pre>
-            </p>
+            <p>I start by defining two key models: Report and ReportParameter. Report stores the report information, including the SQL query or BI URL, and ReportParameter defines the parameters that can be used in the reports.</p>
+            <pre><code class="language-python"># models.py
+
+from django.db import models
+
+PARAMETER_TYPES = [
+    ('text', 'Text'),
+    ('integer', 'Integer'),
+    ('decimal', 'Decimal'),
+    ('date', 'Date'),
+    ('boolean', 'Boolean'),
+    ('choice_list', 'Choice List'),
+    ('multiple_choice', 'Multiple Choice'),
+    ('json', 'JSON or Dict'),
+]
+
+class ReportParameter(models.Model):
+    report = models.ForeignKey('Report', on_delete=models.CASCADE, related_name="parameters")
+    name = models.CharField(max_length=255)
+    type = models.CharField(max_length=50, choices=PARAMETER_TYPES)
+    required = models.BooleanField(default=False)
+    data = models.CharField(max_length=500, null=True, blank=True, 
+        help_text="List of data to select from in case of choice list or multiple choice, " \
+        "use the convention app.model to generate data from an existing model")
+
+    def __str__(self):
+        return self.name
+
+class Report(models.Model):
+    name = models.CharField(max_length=255)
+    sql_query = models.TextField(null=True, blank=True)
+    bi_url = models.URLField(null=True, blank=True)
+
+    def __str__(self):
+        return self.name</code></pre>
         </section>
         
-<section>
-    <h2>Admin Configuration for Reports</h2>
-    <p>Configure the Django admin to manage reports and their parameters:</p>
-    <pre><code class="language-python">
-    # admin.py
+        <section class="card fade-in">
+            <h2>Admin Configuration for Reports</h2>
+            <p>Configure the Django admin to manage reports and their parameters:</p>
+            <pre><code class="language-python"># admin.py
 
-    from django.contrib import admin
-    from django.urls import path
-    from django.template.response import TemplateResponse
-    from django.utils.translation import gettext as _
-    from .models import Report, ReportParameter
-    from .forms import ShowReportForm
+from django.contrib import admin
+from django.urls import path
+from django.template.response import TemplateResponse
+from django.utils.translation import gettext as _
+from .models import Report, ReportParameter
+from .forms import ShowReportForm
 
-    class ReportParameterInline(admin.TabularInline):
-        model = ReportParameter
-        extra = 0
+class ReportParameterInline(admin.TabularInline):
+    model = ReportParameter
+    extra = 0
 
-    class ReportAdmin(admin.ModelAdmin):
-        list_display = ('name',)
-        inlines = [ReportParameterInline]
-    </code></pre>
-    <p>
-        configures the view and interaction with the Report model in the Django admin panel. 
-        list_display specifies which columns are visible in the list of reports, while inlines adds the <strong>ReportParameterInline</strong>  
-        for editing parameters within the same admin page.
-    </p>
-    <img src="../media/dynamicrep_admin.png" alt="Express img" class="section-img">
-</section>
+class ReportAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    inlines = [ReportParameterInline]</code></pre>
+            <p>This configures the view and interaction with the Report model in the Django admin panel. list_display specifies which columns are visible in the list of reports, while inlines adds the <strong>ReportParameterInline</strong> for editing parameters within the same admin page.</p>
+            <img src="../media/dynamicrep_admin.png" alt="Django Admin Configuration" class="section-img">
+        </section>
 
-<section>
-    <h2>Custom URLs and Vews</h2>
-    <p>Configure the Django admin to manage reports and their parameters:</p>
-    <pre><code class="language-python">
-    def get_urls(self):
-        info = self.model._meta.app_label, self.model._meta.model_name
-        urls = super().get_urls()
-        custom_urls = [
-            path('select_report/', self.admin_site.admin_view(self.select_report), name='%s_%s_select_report' % info),
-            path('generate_report/', self.admin_site.admin_view(self.generate_report), name='%s_%s_generate_report' % info),
-        ]
-        return custom_urls + urls
-    </code></pre>
-    <P>
-        `get_urls()` allows defining custom URLs for specific actions within the admin. 
-        <strong>select_report</strong>  and <strong>generate_report</strong>  are views that handle selecting and generating reports respectively.
-    </P>
-    <pre><code class="language-python">
-    def construct_sql_query(self, original_sql_query, form_data):
-        from django.db import connection
-        parameters_in_sql = [parameter.split('@')[1] for parameter in original_sql_query.split() if '@' in parameter]
+        <section class="card fade-in">
+            <h2>Custom URLs and Views</h2>
+            <p>Define custom URLs for specific actions within the admin:</p>
+            <pre><code class="language-python">def get_urls(self):
+    info = self.model._meta.app_label, self.model._meta.model_name
+    urls = super().get_urls()
+    custom_urls = [
+        path('select_report/', self.admin_site.admin_view(self.select_report), name='%s_%s_select_report' % info),
+        path('generate_report/', self.admin_site.admin_view(self.generate_report), name='%s_%s_generate_report' % info),
+    ]
+    return custom_urls + urls</code></pre>
+            <p>get_urls() allows defining custom URLs for specific actions within the admin. <strong>select_report</strong> and <strong>generate_report</strong> are views that handle selecting and generating reports respectively.</p>
+            <pre><code class="language-python">def construct_sql_query(self, original_sql_query, form_data):
+    from django.db import connection
+    parameters_in_sql = [parameter.split('@')[1] for parameter in original_sql_query.split() if '@' in parameter]
 
-        for parameter in parameters_in_sql:
-            original_sql_query = original_sql_query.replace(f"@{parameter}", f"%({parameter})s")
-            
-        with connection.cursor() as cursor:
-            cursor.execute(original_sql_query, form_data)
-            results = cursor.fetchall()
-            headers = [column[0] for column in cursor.description]
-            results_with_headers = [dict(zip(headers, result)) for result in results]
-
-        return results_with_headers
-
-    def select_report(self, request):
-        from django.core.serializers.json import DjangoJSONEncoder
-        import json
-
-        context = {}
-        form_type = ShowReportForm
+    for parameter in parameters_in_sql:
+        original_sql_query = original_sql_query.replace(f"@{parameter}", f"%({parameter})s")
         
-        form = form_type(request.POST or None,
-                         request.FILES or None)
+    with connection.cursor() as cursor:
+        cursor.execute(original_sql_query, form_data)
+        results = cursor.fetchall()
+        headers = [column[0] for column in cursor.description]
+        results_with_headers = [dict(zip(headers, result)) for result in results]
+
+    return results_with_headers
+
+def select_report(self, request):
+    from django.core.serializers.json import DjangoJSONEncoder
+    import json
+
+    context = {}
+    form_type = ShowReportForm
+    
+    form = form_type(request.POST or None, request.FILES or None)
+    
+    if request.POST and form.is_valid():
+        report = form.cleaned_data['name']
+        if report.bi_url:
+            context['uri_dashboard'] = report.bi_url
+        else:
+            result = self.construct_sql_query(report.sql_query, form.cleaned_data)
+            context['results'] = json.dumps(result, cls=DjangoJSONEncoder)
         
-        if request.POST and form.is_valid():
-            report = form.cleaned_data['name']
-            if report.bi_url:
-                context['uri_dashboard'] = report.bi_url
+    context['title'] = _("Report")
+    context['form'] = form
+    context['opts'] = self.model._meta
+    
+    return TemplateResponse(request, "admin/report/select.html", context)</code></pre>
+        </section>
+
+        <section class="card fade-in">
+            <h2>Dynamic Form Generation with Parameter Inputs</h2>
+            <p>In essence, ShowReportForm dynamically adapts to user-selected reports within the Django admin, facilitating flexible data input and retrieval processes. When coupled with select_report, it empowers administrators to manage and visualize dynamic reports seamlessly through the Django framework.</p>
+            <pre><code class="language-python">from django import forms
+from .models import Report, ReportParameter
+
+class ShowReportForm(forms.Form):
+    class Meta:
+        fields = ['name',]
+
+    def __init__(self, *args, **kwargs):
+        super(ShowReportForm, self).__init__(*args, **kwargs)
+        
+        self.fields['name'] = forms.ModelChoiceField(
+            queryset=Report.objects.all(),
+            empty_label="Select the report name",
+            help_text="Select the name of the report",
+        )
+        if self.data and 'name' in self.fields:
+            parameters = ReportParameter.objects.filter(report=self.data.get('name'))
+            for parameter in parameters:
+                if parameter.type == 'text':
+                    self.fields[parameter.name] = forms.CharField(label=parameter.name, required=parameter.required)
+                elif parameter.type == 'integer':
+                    self.fields[parameter.name] = forms.IntegerField(label=parameter.name, required=parameter.required)
+                elif parameter.type == 'decimal':
+                    self.fields[parameter.name] = forms.DecimalField(label=parameter.name, required=parameter.required)
+                elif parameter.type == 'date':
+                    self.fields[parameter.name] = forms.DateField(label=parameter.name,
+                                                                    required=parameter.required,
+                                                                    widget=forms.DateInput(attrs={'type': 'date'}))
+                elif parameter.type == 'boolean':
+                    self.fields[parameter.name] = forms.BooleanField(label=parameter.name)
+                elif parameter.type == 'option_list':
+                    choices = self._get_choices_from_data(parameter.data)
+                    self.fields[parameter.name] = forms.ChoiceField(
+                        label=parameter.name,
+                        choices=choices,
+                        required=parameter.required
+                    )
+                elif parameter.type == 'multiple_selection':
+                    choices = self._get_choices_from_data(parameter.data)
+                    self.fields[parameter.name] = forms.MultipleChoiceField(
+                        label=parameter.name,
+                        choices=choices,
+                        required=parameter.required,
+                        widget=forms.CheckboxSelectMultiple
+                    )
+                
+    def _get_choices_from_data(self, data):
+        from django.apps import apps
+
+        if data:
+            if '.' in data:
+                app_label, model_name = data.split('.')
+                model = apps.get_model(app_label, model_name)
+                choices = [(obj.pk, str(obj)) for obj in model.objects.all()]
             else:
-                result = self.construct_sql_query(report.sql_query, form.cleaned_data)
-                context['results'] = json.dumps(result, cls=DjangoJSONEncoder)
-            
-        context['title'] = _("Report")
-        context['form'] = form
-        context['opts'] = self.model._meta
-        
-        return TemplateResponse(request, "admin/report/select.html", context)
-    </code></pre>
-</section>
-<section>
-    <h2>Dinamyc Form generation with inputs for parameters </h2>
-    <P>
-        In essence, ShowReportForm dynamically adapts to user-selected reports within the Django admin, facilitating flexible data input and retrieval processes. When coupled with select_report, it empowers administrators to manage and visualize dynamic reports seamlessly through the Django framework.
-        
-    </P>
-    <pre><code class="language-python">
-    from django import forms
-    from .models import Report, ReportParameter
-    
-    class ShowReportForm(forms.Form):
-        class Meta:
-            fields = ['name',]
-    
-        def __init__(self, *args, **kwargs):
-            super(ShowReportForm, self).__init__(*args, **kwargs)
-            
-            self.fields['name'] = forms.ModelChoiceField(
-                queryset=Report.objects.all(),
-                empty_label="Select the report name",
-                help_text="Select the name of the report",
-            )
-            if self.data and 'name' in self.fields:
-                parameters = ReportParameter.objects.filter(report=self.data.get('name'))
-                for parameter in parameters:
-                    if parameter.type == 'text':
-                        self.fields[parameter.name] = forms.CharField(label=parameter.name, required=parameter.required)
-                    elif parameter.type == 'integer':
-                        self.fields[parameter.name] = forms.IntegerField(label=parameter.name, required=parameter.required)
-                    elif parameter.type == 'decimal':
-                        self.fields[parameter.name] = forms.DecimalField(label=parameter.name, required=parameter.required)
-                    elif parameter.type == 'date':
-                        self.fields[parameter.name] = forms.DateField(label=parameter.name,
-                                                                        required=parameter.required,
-                                                                        widget=forms.DateInput(attrs={'type': 'date'}))
-                    elif parameter.type == 'boolean':
-                        self.fields[parameter.name] = forms.BooleanField(label=parameter.name)
-                    elif parameter.type == 'option_list':
-                        # Selection field for option list
-                        choices = self._get_choices_from_data(parameter.data)
-                        self.fields[parameter.name] = forms.ChoiceField(
-                            label=parameter.name,
-                            choices=choices,
-                            required=parameter.required
-                        )
-                    elif parameter.type == 'multiple_selection':
-                        # Multiple selection field
-                        choices = self._get_choices_from_data(parameter.data)
-                        self.fields[parameter.name] = forms.MultipleChoiceField(
-                            label=parameter.name,
-                            choices=choices,
-                            required=parameter.required,
-                            widget=forms.CheckboxSelectMultiple
-                        )
-                    
-        def _get_choices_from_data(self, data):
-            from django.apps import apps
-    
-            # Retrieve options from ParametroReporte model data
-            if data:
-                # If format is 'app.model', load options from the specified model
-                if '.' in data:
-                    app_label, model_name = data.split('.')
-                    model = apps.get_model(app_label, model_name)
-                    choices = [(obj.pk, str(obj)) for obj in model.objects.all()]
-                else:
-                    # If format is a comma-separated list of options
-                    choices = [option.strip() for option in data.split(',')]
-                    choices = [(option, option) for option in choices]
-                return choices
-            return []
-        
-    </code></pre>
-    <p>
-        This integration ensures that administrators can efficiently handle complex reporting requirements while maintaining the simplicity and robustness of Django's admin interface.
-    </p>
-    <img src="../media/dynamicrep_reportviewsql.png" alt="" class="section-img">
-</section>
+                choices = [option.strip() for option in data.split(',')]
+                choices = [(option, option) for option in choices]
+            return choices
+        return []</code></pre>
+            <p>This integration ensures that administrators can efficiently handle complex reporting requirements while maintaining the simplicity and robustness of Django's admin interface.</p>
+            <img src="../media/dynamicrep_reportviewsql.png" alt="Report View SQL" class="section-img">
+        </section>
 
-<section>
-    <h2>Conclution</h2>
-    <p>
-        Implementing report generation and display in Django leverages its powerful admin capabilities and flexible form handling. 
-        By customizing forms and integrating with Django's ORM, you can create dynamic and interactive reports that meet your application's needs.
-    </p>
-    <p>
-        In summary, this setup demonstrates how Django's admin site, custom forms, and template rendering can be used together effectively 
-        to manage and present reports within a web application. you can find more information about this project approach at: <a href="https://github.com/twine003/dynamic_report">https://github.com/twine003/dynamic_report</a>
-    </p>
-</section>
-        
-    </div>
+        <section class="card fade-in">
+            <h2>Conclusion</h2>
+            <p>Implementing report generation and display in Django leverages its powerful admin capabilities and flexible form handling. By customizing forms and integrating with Django's ORM, you can create dynamic and interactive reports that meet your application's needs.</p>
+            <p>In summary, this setup demonstrates how Django's admin site, custom forms, and template rendering can be used together effectively to manage and present reports within a web application. You can find more information about this project at: <a href="https://github.com/twine003/dynamic_report" target="_blank">github.com/twine003/dynamic_report</a></p>
+        </section>
+    </main>
     
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <p><i class="fas fa-map-marker-alt"></i> St-Leonard, Montreal, Quebec, Canada</p>
-            <p><i class="fas fa-envelope"></i> <a href="mailto:jwgarciaz003@gmail.com">jwgarciaz003@gmail.com</a></p>
-            <!-- <p><i class="fas fa-phone"></i> <a href="tel:+14387799003">+1 438 779 9003</a></p> -->
-            <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/jwgarciaz" target="_blank">LinkedIn Profile</a></p>
-            <p>&copy; 2024 Jose Williams Garcia Zuniga. All rights reserved.</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>St-Leonard, Montreal, Quebec, Canada</p>
+                    <p><a href="mailto:jwgarciaz003@gmail.com">jwgarciaz003@gmail.com</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <p><a href="https://www.linkedin.com/in/jwgarciaz" target="_blank">LinkedIn Profile</a></p>
+                    <p><a href="https://github.com/twine003" target="_blank">GitHub Profile</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Jose Williams Garcia Zuniga. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- Incluir JavaScript de Prism.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
-    <!-- Opcional: Incluir plugins adicionales de Prism.js según sea necesario -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/autoloader/prism-autoloader.min.js"></script>
     <script>
-        function toggleMenu() {
-            var menu = document.querySelector('.menu ul');
-            menu.classList.toggle('show');
-        }
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active');
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        let lastScroll = 0;
+        const header = document.querySelector('.sticky-header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                header.classList.remove('scroll-up');
+                return;
+            }
+            
+            if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
+                header.classList.remove('scroll-up');
+                header.classList.add('scroll-down');
+            } else if (currentScroll < lastScroll && header.classList.contains('scroll-down')) {
+                header.classList.remove('scroll-down');
+                header.classList.add('scroll-up');
+            }
+            lastScroll = currentScroll;
+        });
     </script>
 </body>
 </html>
