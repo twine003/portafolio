@@ -1,94 +1,168 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Express Portafolio | Jose Williams Garcia Zuniga</title>
+    <title>Express Portfolio | Jose Williams Garcia Zuniga</title>
     <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Font Awesome for icons -->
 </head>
 <body>
-    <header>
-        <div class="container">
-            <img src="../media/image_profile.jpg" alt="Jose Williams Garcia Zuniga" class="profile-img">
-            <h1>Jose Williams Garcia Zuniga</h1>
-            <p>Data Analyst | Python Developer | FrontEnd Developer</p>
-        </div>
+    <header class="sticky-header">
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">JWGZ</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#summary">Summary</a></li>
+                <li><a href="../index.html#education">Education</a></li>
+                <li><a href="../index.html#skills">Skills</a></li>
+                <li><a href="../index.html#experience">Experience</a></li>
+                <li><a href="../portfolio.html">Portfolio</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Menu de navegación -->
-    <nav class="menu">
-        <span class="menu-icon" onclick="toggleMenu()"><i class="fas fa-bars"></i></span>
-        <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../index.html#summary">Summary</a></li>
-            <li><a href="../index.html#education">Education</a></li>
-            <li><a href="../index.html#technical-skills">Technical Skills</a></li>
-            <li><a href="../index.html#work-experience">Work Experience</a></li>
-            <li><a href="../portfolio.html">Portfolio</a></li>
-            <!-- <li class="dropdown">
-                <a href="#" class="dropbtn">Language <i class="fas fa-angle-down"></i></a>
-                <div class="dropdown-content">
-                    <a href="../index.html">English</a>
-                    <a href="index_fr.html">French</a>
-                    <a href="index_es.html">Spanish</a>
-                </div>
-            </li> -->
-        </ul>
-    </nav>
+    <section class="hero-section project-hero">
+        <div class="container">
+            <h1 class="fade-in">Express Distribution Routes</h1>
+            <p class="hero-subtitle fade-in">Optimizing Delivery Operations with Machine Learning</p>
+        </div>
+    </section>
 
-    <div class="container">
-        <section>
+    <main class="container">
+        <section class="card fade-in">
             <h2>Project Overview</h2>
-            <p><span class="highlight">Express</span> is an application designed to enhance efficiency in planning and executing distribution routes. Using machine learning and optimization techniques, we aim to reduce operational costs and delivery times while improving customer satisfaction.</p>
-            <img src="../media/express.png" alt="Express img" class="section-img">
+            <p><strong>Express</strong> is an application designed to enhance efficiency in planning and executing distribution routes. Using machine learning and optimization techniques, we aim to reduce operational costs and delivery times while improving customer satisfaction.</p>
+            <img src="../media/express.png" alt="Express Application Overview" class="section-img">
         </section>
         
-        <section>
+        <section class="card fade-in">
             <h2>Key Components of the Project</h2>
-            <p>The <span class="highlight">Express</span> project comprises several critical components:</p>
-            <ul>
-                <li><strong>models.py:</strong> Defines essential data structures supporting the core business logic of Express.</li>
-                <li><strong>admin.py:</strong> Facilitates efficient data management and visualization through Django's admin interface.</li>
+            <p>The <strong>Express</strong> project comprises several critical components:</p>
+            <ul class="feature-list">
+                <li>
+                    <strong>models.py:</strong> 
+                    <p>Defines essential data structures supporting the core business logic of Express.</p>
+                </li>
+                <li>
+                    <strong>admin.py:</strong> 
+                    <p>Facilitates efficient data management and visualization through Django's admin interface.</p>
+                </li>
             </ul>
         </section>
         
-        <section>
+        <section class="card fade-in">
             <h2>Technologies Used</h2>
-            <p>The <span class="highlight">Express</span> project leverages a robust stack of technologies, including:</p>
-            <ul>
-                <li><strong>Python:</strong> Used for business logic development and integration with optimization and machine learning libraries.</li>
-                <li><strong>Django:</strong> Web framework providing a secure and organized structure for our application.</li>
-                <li><strong>PostgreSQL:</strong> Relational database management system for efficient storage and retrieval of large datasets.</li>
-                <li><strong>Machine Learning and Optimization:</strong> Advanced algorithms for generating optimal routes based on historical data and real-time conditions.</li>
+            <p>The <strong>Express</strong> project leverages a robust stack of technologies:</p>
+            <ul class="feature-list">
+                <li>
+                    <strong>Python:</strong> 
+                    <p>Used for business logic development and integration with optimization and machine learning libraries.</p>
+                </li>
+                <li>
+                    <strong>Django:</strong> 
+                    <p>Web framework providing a secure and organized structure for our application.</p>
+                </li>
+                <li>
+                    <strong>PostgreSQL:</strong> 
+                    <p>Relational database management system for efficient storage and retrieval of large datasets.</p>
+                </li>
+                <li>
+                    <strong>Machine Learning and Optimization:</strong> 
+                    <p>Advanced algorithms for generating optimal routes based on historical data and real-time conditions.</p>
+                </li>
             </ul>
         </section>
         
-        <section>
+        <section class="card fade-in">
             <h2>Benefits and Expected Outcomes</h2>
-            <p>The implementation of <span class="highlight">Express</span> promises several benefits:</p>
-            <ul>
+            <p>The implementation of <strong>Express</strong> promises several benefits:</p>
+            <ul class="feature-list">
                 <li>Cost reduction through optimized routes and efficient resource management.</li>
                 <li>Enhanced customer experience by meeting precise and consistent delivery times.</li>
                 <li>Improved responsiveness to market demands and operational conditions.</li>
             </ul>
         </section>
-    </div>
+    </main>
     
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <p><i class="fas fa-map-marker-alt"></i> St-Leonard, Montreal, Quebec, Canada</p>
-            <p><i class="fas fa-envelope"></i> <a href="mailto:jwgarciaz003@gmail.com">jwgarciaz003@gmail.com</a></p>
-            <!-- <p><i class="fas fa-phone"></i> <a href="tel:+14387799003">+1 438 779 9003</a></p> -->
-            <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/jwgarciaz" target="_blank">LinkedIn Profile</a></p>
-            <p>&copy; 2024 Jose Williams Garcia Zuniga. All rights reserved.</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>St-Leonard, Montreal, Quebec, Canada</p>
+                    <p><a href="mailto:jwgarciaz003@gmail.com">jwgarciaz003@gmail.com</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <p><a href="https://www.linkedin.com/in/jwgarciaz" target="_blank">LinkedIn Profile</a></p>
+                    <p><a href="https://github.com/twine003" target="_blank">GitHub Profile</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Jose Williams Garcia Zuniga. All rights reserved.</p>
+            </div>
         </div>
     </footer>
+
     <script>
-        function toggleMenu() {
-            var menu = document.querySelector('.menu ul');
-            menu.classList.toggle('show');
-        }
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active');
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        let lastScroll = 0;
+        const header = document.querySelector('.sticky-header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                header.classList.remove('scroll-up');
+                return;
+            }
+            
+            if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
+                header.classList.remove('scroll-up');
+                header.classList.add('scroll-down');
+            } else if (currentScroll < lastScroll && header.classList.contains('scroll-down')) {
+                header.classList.remove('scroll-down');
+                header.classList.add('scroll-up');
+            }
+            lastScroll = currentScroll;
+        });
     </script>
 </body>
 </html>
