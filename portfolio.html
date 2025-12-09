@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio | Jose Williams Garcia Zuniga</title>
+    <title>Portfolio | Jose Williams Garcia Zuniga</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="styles.css">
     <style>
-        /* Reset y Variables */
+        /* Reset and Variables */
         * {
             margin: 0;
             padding: 0;
@@ -33,7 +35,7 @@
             overflow-x: hidden;
         }
 
-        /* Header y Navegación */
+        /* Header and Navigation */
         header {
             position: fixed;
             top: 0;
@@ -190,7 +192,7 @@
             }
         }
 
-        /* Secciones */
+        /* Sections */
         section {
             padding: 5rem 2rem;
             max-width: 1200px;
@@ -339,7 +341,7 @@
             margin: 0.5rem 0;
         }
 
-        /* Icons usando Unicode */
+        /* Icons using Unicode */
         .icon-location::before { content: '📍 '; }
         .icon-email::before { content: '✉️ '; }
         .icon-linkedin::before { content: '💼 '; }
@@ -389,7 +391,6 @@
             }
         }
 
-        /* Print Styles */
         @media print {
             * {
                 background: white !important;
@@ -518,10 +519,10 @@
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#resumen">Summary</a></li>
-                <li><a href="index.html#educacion">Education</a></li>
-                <li><a href="index.html#habilidades">Technical Skills</a></li>
-                <li><a href="index.html#experiencia">Work Experience</a></li>
+                <li><a href="index.html#summary">Summary</a></li>
+                <li><a href="index.html#education">Education</a></li>
+                <li><a href="index.html#skills">Technical Skills</a></li>
+                <li><a href="index.html#experience">Work Experience</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
             </ul>
         </nav>
@@ -530,14 +531,14 @@
     <div class="hero">
         <div class="hero-content">
             <img src="media/image_profile.jpg" alt="Jose Williams Garcia Zuniga" class="profile-img">
-            <h1>Mi Portafolio</h1>
-            <p>Proyectos destacados en desarrollo web y análisis de datos</p>
+            <h1>My Portfolio</h1>
+            <p>Featured projects in web development and data analysis</p>
         </div>
     </div>
 
     <section id="projects" class="fade-in">
         <div class="section-header">
-            <h2>Proyectos</h2>
+            <h2>Projects</h2>
             <div class="underline"></div>
         </div>
 
@@ -570,7 +571,7 @@
             </div>
 
             <div class="project-card">
-                <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*cv2YKS2qapUgb065keBFug.png" alt="Django Devcontainer" class="project-image">
+                <img src="/images/design-mode/1_cv2YKS2qapUgb065keBFug(1).png" alt="Django Devcontainer" class="project-image">
                 <div class="project-content">
                     <h3>Accelerate Django and Postgres Development with Docker Devcontainers</h3>
                     <p>Developing Django web apps with a Postgres database can be slow and complex due to environment configuration. Docker and devcontainers streamline setup so you can build features faster.</p>
@@ -598,7 +599,7 @@
     </footer>
 
     <script>
-        // Navegación móvil
+        // Mobile navigation
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
 
@@ -606,7 +607,7 @@
             navLinks.classList.toggle('active');
         });
 
-        // Cerrar menú al hacer clic en un enlace
+        // Close menu when clicking on a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
@@ -623,7 +624,7 @@
             }
         });
 
-        // Intersection Observer para animaciones de scroll
+        // Intersection Observer for scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -637,7 +638,7 @@
             });
         }, observerOptions);
 
-        // Observar todas las secciones con fade-in
+        // Observe all sections with fade-in
         document.querySelectorAll('.fade-in').forEach(section => {
             observer.observe(section);
         });
