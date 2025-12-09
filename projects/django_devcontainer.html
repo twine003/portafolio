@@ -1,90 +1,155 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevContainers Portafolio | Jose Williams Garcia Zuniga</title>
+    <title>DevContainers Portfolio | Jose Williams Garcia Zuniga</title>
     <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Font Awesome for icons -->
 </head>
 <body>
-    <header>
-        <div class="container">
-            <img src="../media/image_profile.jpg" alt="Jose Williams Garcia Zuniga" class="profile-img">
-            <h1>Jose Williams Garcia Zuniga</h1>
-            <p>Data Analyst | Python Developer | FrontEnd Developer</p>
-        </div>
+    <!-- Updated header structure to match modern design -->
+    <header class="sticky-header">
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">JWGZ</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#summary">Summary</a></li>
+                <li><a href="../index.html#education">Education</a></li>
+                <li><a href="../index.html#skills">Skills</a></li>
+                <li><a href="../index.html#experience">Experience</a></li>
+                <li><a href="../portfolio.html">Portfolio</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Menu de navegación -->
-    <nav class="menu">
-        <span class="menu-icon" onclick="toggleMenu()"><i class="fas fa-bars"></i></span>
-        <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../index.html#summary">Summary</a></li>
-            <li><a href="../index.html#education">Education</a></li>
-            <li><a href="../index.html#technical-skills">Technical Skills</a></li>
-            <li><a href="../index.html#work-experience">Work Experience</a></li>
-            <li><a href="../portfolio.html">Portfolio</a></li>
-            <!-- <li class="dropdown">
-                <a href="#" class="dropbtn">Language <i class="fas fa-angle-down"></i></a>
-                <div class="dropdown-content">
-                    <a href="../index.html">English</a>
-                    <a href="index_fr.html">French</a>
-                    <a href="index_es.html">Spanish</a>
-                </div>
-            </li> -->
-        </ul>
-    </nav>
+    <!-- Added hero section for project title -->
+    <section class="hero-section project-hero">
+        <div class="container">
+            <h1 class="fade-in">Django DevContainers</h1>
+            <p class="hero-subtitle fade-in">Accelerate Django and Postgres Development with Docker</p>
+        </div>
+    </section>
 
-    <div class="container">
-        <section>
+    <main class="container">
+        <!-- Added card styling and animation classes -->
+        <section class="card fade-in">
             <h2>Project Overview</h2>
             <p>Developing Django web apps with a Postgres database can be slow and complex due to environment configuration. Docker and devcontainers streamline setup so you can build features faster.</p>
-            <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*cv2YKS2qapUgb065keBFug.png" alt="Express img" class="section-img">
+            <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*cv2YKS2qapUgb065keBFug.png" alt="Django DevContainers Overview" class="section-img">
         </section>
         
-        <section>
+        <section class="card fade-in">
             <h2>The Problem</h2>
-            <p>TWhen starting a new Django project, I wanted an easy way to get up and running with Django and Postgres. 
-                However, most tutorials or sample projects skip over the details of configuring the development environment. 
-                There is a lot of boilerplate code needed to link Django to the database, run migrations, connect Django’s runserver to the Docker containers etc.
-            </p>
-            <p>
-                I could not find a simple, bare-bones template to clone and start developing immediately with Django and Postgres in Docker. 
-                So I created this project to provide a starter devcontainer config that takes care of the initial setup hassles.
-            </p>
-            <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*E6-8NYMvZwtFlCPjdsIe3Q.png" alt="Express img" class="section-img">
-            
+            <p>When starting a new Django project, I wanted an easy way to get up and running with Django and Postgres. However, most tutorials or sample projects skip over the details of configuring the development environment. There is a lot of boilerplate code needed to link Django to the database, run migrations, connect Django's runserver to the Docker containers etc.</p>
+            <p>I could not find a simple, bare-bones template to clone and start developing immediately with Django and Postgres in Docker. So I created this project to provide a starter devcontainer config that takes care of the initial setup hassles.</p>
+            <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*E6-8NYMvZwtFlCPjdsIe3Q.png" alt="Django Development Setup" class="section-img">
         </section>
         
-        <section>
+        <section class="card fade-in">
             <h2>Resources</h2>
             <p>You can read more about my approach in my article at Medium</p>
-            <ul>
-                <li><strong>Medium:</strong> <a href="https://medium.com/@jwgarcia003/accelerate-django-and-postgres-development-with-docker-devcontainers-7b6dc85632b8">
-                    <i class="fas fa-globe"></i>
-                     Accelerate Django and Postgres Development with Docker Devcontainers</a></li>
-                <li><strong>Github:</strong> <a href="https://github.com/twine003/django_postgres_devcontainer"><i class="fas fa-github"></i> https://github.com/twine003/django_postgres_devcontainer</a></li>
+            <ul class="resource-list">
+                <li>
+                    <strong>Medium:</strong> 
+                    <a href="https://medium.com/@jwgarcia003/accelerate-django-and-postgres-development-with-docker-devcontainers-7b6dc85632b8" target="_blank">
+                        Accelerate Django and Postgres Development with Docker Devcontainers
+                    </a>
+                </li>
+                <li>
+                    <strong>Github:</strong> 
+                    <a href="https://github.com/twine003/django_postgres_devcontainer" target="_blank">
+                        github.com/twine003/django_postgres_devcontainer
+                    </a>
+                </li>
             </ul>
         </section>
-        
-    </div>
-    <footer>
+    </main>
+    
+    <!-- Updated footer structure -->
+    <footer class="footer">
         <div class="container">
-            <p><i class="fas fa-map-marker-alt"></i> St-Leonard, Montreal, Quebec, Canada</p>
-            <p><i class="fas fa-envelope"></i> <a href="mailto:jwgarciaz003@gmail.com">jwgarciaz003@gmail.com</a></p>
-            <!-- <p><i class="fas fa-phone"></i> <a href="tel:+14387799003">+1 438 779 9003</a></p> -->
-            <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/jwgarciaz" target="_blank">LinkedIn Profile</a></p>
-            <p>&copy; 2024 Jose Williams Garcia Zuniga. All rights reserved.</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>St-Leonard, Montreal, Quebec, Canada</p>
+                    <p><a href="mailto:jwgarciaz003@gmail.com">jwgarciaz003@gmail.com</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <p><a href="https://www.linkedin.com/in/jwgarciaz" target="_blank">LinkedIn Profile</a></p>
+                    <p><a href="https://github.com/twine003" target="_blank">GitHub Profile</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Jose Williams Garcia Zuniga. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
+    <!-- Added modern JavaScript for navigation and animations -->
     <script>
-        function toggleMenu() {
-            var menu = document.querySelector('.menu ul');
-            menu.classList.toggle('show');
-        }
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Header scroll effect
+        let lastScroll = 0;
+        const header = document.querySelector('.sticky-header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                header.classList.remove('scroll-up');
+                return;
+            }
+            
+            if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
+                header.classList.remove('scroll-up');
+                header.classList.add('scroll-down');
+            } else if (currentScroll < lastScroll && header.classList.contains('scroll-down')) {
+                header.classList.remove('scroll-down');
+                header.classList.add('scroll-up');
+            }
+            lastScroll = currentScroll;
+        });
     </script>
 </body>
 </html>
