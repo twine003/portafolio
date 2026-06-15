@@ -1,0 +1,487 @@
+/* =====================================================================
+   cv.css — Shared print stylesheet for Jose Williams Garcia Zuniga CV
+   A4 two-column résumé. Rendered to PDF via Edge/Chromium --print-to-pdf.
+   Palette/fonts mirror the portfolio website (styles.css).
+   ===================================================================== */
+
+:root {
+  --primary: #0f172a;
+  --primary-light: #1e293b;
+  --accent: #06b6d4;
+  --accent-dark: #0891b2;
+  --text: #334155;
+  --text-light: #64748b;
+  --bg: #ffffff;
+  --bg-secondary: #f8fafc;
+  --border: #e2e8f0;
+
+  /* sidebar (dark) tones */
+  --side-bg: #0f172a;
+  --side-text: #cbd5e1;
+  --side-text-strong: #f1f5f9;
+  --side-muted: #94a3b8;
+  --side-divider: rgba(255, 255, 255, 0.12);
+
+  --page-pad: 14mm;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+html,
+body {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", "Roboto", sans-serif;
+  color: var(--text);
+  /* Continuous full-height dark band painted on the page background so it
+     spans EVERY printed page (incl. page 2), not just the sidebar grid cell.
+     32% dark column + thin accent stripe at the column boundary + white. */
+  background: linear-gradient(
+    to right,
+    #0f172a 0,
+    #0f172a 31.7%,
+    #06b6d4 31.7%,
+    #06b6d4 32%,
+    #ffffff 32%,
+    #ffffff 100%
+  );
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-size: 10.2pt;
+  line-height: 1.35;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ----------------------------------------------------------------- PAGE */
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  /* transparent so the continuous dark band on <body> shows through,
+     including on page 2 where the sidebar content has ended */
+  background: transparent;
+  display: grid;
+  grid-template-columns: 32% 68%;
+  align-items: stretch;
+}
+
+/* ============================================================== SIDEBAR */
+.sidebar {
+  /* transparent: the dark band + accent edge are painted by the body
+     gradient so they continue full-height across every page */
+  background: transparent;
+  color: var(--side-text);
+  padding: var(--page-pad) 9mm;
+}
+
+.sidebar .photo-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 7mm;
+}
+
+.sidebar .photo {
+  width: 38mm;
+  height: 38mm;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.18);
+}
+
+/* sidebar section blocks */
+.side-block {
+  margin-bottom: 6.5mm;
+  break-inside: avoid;
+}
+
+.side-block:last-child {
+  margin-bottom: 0;
+}
+
+.side-title {
+  font-size: 8.6pt;
+  letter-spacing: 1.0px;
+  text-transform: uppercase;
+  color: var(--side-text-strong);
+  font-weight: 700;
+  padding-bottom: 2mm;
+  margin-bottom: 3.5mm;
+  border-bottom: 1px solid var(--side-divider);
+  position: relative;
+}
+
+.side-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 28px;
+  height: 2px;
+  background: var(--accent);
+}
+
+/* contact list */
+.contact-list {
+  list-style: none;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.4mm;
+  margin-bottom: 2.8mm;
+  font-size: 8.6pt;
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+.contact-list li:last-child {
+  margin-bottom: 0;
+}
+
+.contact-list .ico {
+  flex: 0 0 auto;
+  width: 4.2mm;
+  height: 4.2mm;
+  margin-top: 0.3mm;
+  color: var(--accent);
+}
+
+.contact-list .ico svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 1.8;
+}
+
+.contact-list a,
+.contact-list span.val {
+  color: var(--side-text);
+  text-decoration: none;
+}
+
+/* skills (sidebar) */
+.skill-group {
+  margin-bottom: 4mm;
+  break-inside: avoid;
+}
+
+.skill-group:last-child {
+  margin-bottom: 0;
+}
+
+.skill-group h4 {
+  font-size: 8.4pt;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2.4mm;
+}
+
+.skill-row {
+  margin-bottom: 2.6mm;
+}
+
+.skill-row:last-child {
+  margin-bottom: 0;
+}
+
+.skill-row .label {
+  font-size: 8.3pt;
+  color: var(--side-text-strong);
+  margin-bottom: 1mm;
+  line-height: 1.25;
+}
+
+.skill-row .track {
+  height: 3.2px;
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.skill-row .fill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-dark) 100%);
+  border-radius: 2px;
+}
+
+/* languages list */
+.lang-list {
+  list-style: none;
+}
+
+.lang-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 8.6pt;
+  margin-bottom: 2mm;
+  color: var(--side-text-strong);
+}
+
+.lang-list li:last-child {
+  margin-bottom: 0;
+}
+
+.lang-list .lvl {
+  font-size: 7.8pt;
+  color: var(--side-muted);
+}
+
+/* ================================================================= MAIN */
+.main {
+  padding: var(--page-pad) 11mm var(--page-pad) 11mm;
+}
+
+/* header / name block */
+.headline {
+  margin-bottom: 5mm;
+  padding-bottom: 4mm;
+  border-bottom: 2px solid var(--border);
+}
+
+.headline h1 {
+  font-size: 23pt;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1.08;
+  letter-spacing: -0.3px;
+}
+
+.headline h1 .accent {
+  color: var(--accent);
+}
+
+.headline .role {
+  margin-top: 1.5mm;
+  font-size: 11.5pt;
+  font-weight: 600;
+  color: var(--accent-dark);
+  letter-spacing: 0.2px;
+}
+
+/* main section heading */
+.section {
+  margin-bottom: 4mm;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.section > h2 {
+  font-size: 11.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--primary);
+  margin-bottom: 3.2mm;
+  padding-bottom: 1.6mm;
+  position: relative;
+}
+
+.section > h2::before {
+  /* accent square marker */
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  background: var(--accent);
+  border-radius: 2px;
+  margin-right: 3mm;
+  vertical-align: baseline;
+}
+
+.section > h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+}
+
+/* summary */
+.summary p {
+  font-size: 9.7pt;
+  line-height: 1.4;
+  color: var(--text);
+  text-align: left;
+  hyphens: auto;
+}
+
+/* experience */
+.xp {
+  break-inside: avoid;
+  margin-bottom: 3.2mm;
+  padding-left: 4mm;
+  border-left: 2px solid var(--border);
+  position: relative;
+}
+
+.xp:last-child {
+  margin-bottom: 0;
+}
+
+.xp::before {
+  content: "";
+  position: absolute;
+  left: -4.5px;
+  top: 1.4mm;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 2px var(--bg);
+}
+
+.xp-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4mm;
+}
+
+.xp-head .title {
+  font-size: 10.4pt;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.2;
+}
+
+.xp-head .date {
+  flex: 0 0 auto;
+  font-size: 8.3pt;
+  font-weight: 600;
+  color: var(--text-light);
+  white-space: nowrap;
+}
+
+.xp .company {
+  font-size: 9.3pt;
+  font-weight: 600;
+  color: var(--accent-dark);
+  margin-top: 0.4mm;
+}
+
+.xp .meta {
+  font-size: 8.4pt;
+  color: var(--text-light);
+  margin-top: 0.4mm;
+  font-style: italic;
+}
+
+.xp ul {
+  list-style: none;
+  margin-top: 1.8mm;
+}
+
+.xp ul li {
+  position: relative;
+  padding-left: 4mm;
+  font-size: 9pt;
+  line-height: 1.34;
+  color: var(--text);
+  margin-bottom: 0.9mm;
+}
+
+.xp ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4.5px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* tech chips */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6mm;
+  margin-top: 2.2mm;
+}
+
+.chip {
+  font-size: 7.6pt;
+  font-weight: 600;
+  color: var(--accent-dark);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.6mm 2.4mm;
+  line-height: 1.5;
+}
+
+/* education */
+.edu {
+  break-inside: avoid;
+  margin-bottom: 3.4mm;
+  padding: 2.6mm 3.2mm;
+  background: var(--bg-secondary);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+}
+
+.edu:last-child {
+  margin-bottom: 0;
+}
+
+.edu-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4mm;
+}
+
+.edu .title {
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.2;
+}
+
+.edu .date {
+  flex: 0 0 auto;
+  font-size: 8.3pt;
+  font-weight: 600;
+  color: var(--text-light);
+  white-space: nowrap;
+}
+
+.edu .inst {
+  font-size: 9pt;
+  font-weight: 600;
+  color: var(--accent-dark);
+  margin-top: 0.6mm;
+}
+
+.edu .note {
+  display: block;
+  font-size: 8pt;
+  font-style: italic;
+  color: var(--text-light);
+  margin-top: 1mm;
+  line-height: 1.3;
+}
